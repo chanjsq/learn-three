@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="demo01">
     <canvas ref="canvas"></canvas>
   </div>
 </template>
@@ -75,17 +75,9 @@ export default {
 };
 </script>
 
-<style lang="scss">
-body {
-  margin: 0;
-}
-</style>
-
 <style lang="scss" scoped>
 canvas {
   width: 100vw;
   height: 100vh;
-  display: block;
-  outline: 0;
 }
 </style>

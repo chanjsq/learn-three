@@ -12,6 +12,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 let renderer;
 let camera;
 let scene;
+let model;
 
 export default {
   mounted() {
@@ -44,8 +45,8 @@ export default {
       {
         const loader = new GLTFLoader();
         loader.load('/models/low_poly_well/scene.gltf', (gltf) => {
-          scene.add(gltf.scene);
-          this.render();
+          model = gltf.scene;
+          scene.add(model);
         });
       }
 
@@ -57,14 +58,18 @@ export default {
       scene.add(envLight);
 
       // 渲染
-      this.render();
+      this.animate();
 
       // 设置轨道控制
       const controls = new OrbitControls(camera, canvas);
-      controls.addEventListener('change', this.render);
+      controls.addEventListener('change', () => renderer.render(scene, camera));
     },
-    render() {
+    animate() {
+      if (model) {
+        model.rotation.y += 0.01;
+      }
       renderer.render(scene, camera);
+      requestAnimationFrame(this.animate);
     },
   },
 };

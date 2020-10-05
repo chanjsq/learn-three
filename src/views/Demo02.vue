@@ -1,17 +1,17 @@
 <template>
-  <div class="demo01">
+  <div class="demo02">
     <canvas ref="canvas"></canvas>
   </div>
 </template>
 
 <script>
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 let renderer;
 let camera;
 let scene;
-let cube;
 
 export default {
   mounted() {
@@ -35,18 +35,18 @@ export default {
 
       // 定义相机
       camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-      camera.position.z = 5;
+      camera.position.set(10, 10, 50);
 
       // 定义场景
       scene = new THREE.Scene();
 
-      // 添加立方体
+      // 加载模型
       {
-        const geometry = new THREE.BoxBufferGeometry(1, 1, 1);
-        const material = new THREE.MeshStandardMaterial({ color: '#ff9900' });
-        cube = new THREE.Mesh(geometry, material);
-        scene.rotation.set(0.3, 0.3, 0);
-        scene.add(cube);
+        const loader = new GLTFLoader();
+        loader.load('/models/low_poly_well/scene.gltf', (gltf) => {
+          scene.add(gltf.scene);
+          this.render();
+        });
       }
 
       // 添加户外光
@@ -57,19 +57,14 @@ export default {
       scene.add(envLight);
 
       // 渲染
-      renderer.render(scene, camera);
-
-      // 动画
-      this.animate();
+      this.render();
 
       // 设置轨道控制
       const controls = new OrbitControls(camera, canvas);
-      controls.addEventListener('change', () => renderer.render(scene, camera));
+      controls.addEventListener('change', this.render);
     },
-    animate() {
-      cube.rotation.y += 0.01;
+    render() {
       renderer.render(scene, camera);
-      requestAnimationFrame(this.animate);
     },
   },
 };

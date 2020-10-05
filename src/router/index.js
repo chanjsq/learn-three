@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Demo01 from '../views/Demo01.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   { path: '/', redirect: '/demo01' },
-  { path: '/demo01', component: Demo01 },
+  { path: '/demo01', component: () => import('@/views/Demo01.vue') },
+  { path: '/demo02', component: () => import('@/views/Demo02.vue') },
 ];
 
 const router = new VueRouter({

@@ -13,3 +13,6 @@
 - 数学
   - [矩阵入门](https://www.shuxuele.com/algebra/matrix-introduction.html) - _数学乐_
   - [线性代数的本质](https://space.bilibili.com/88461692/channel/detail?cid=9450) - _3Blue1Brown_
+- 模型
+  - [Low Poly Well](https://skfb.ly/6TNAL) - abdullahyeahyea
+  - [Seven Stars Brick Lane](https://skfb.ly/6V96t)

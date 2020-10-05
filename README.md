@@ -12,4 +12,4 @@
   - [Three.js 基础](https://threejsfundamentals.org/)
 - 数学
   - [矩阵入门](https://www.shuxuele.com/algebra/matrix-introduction.html) - _数学乐_
-  - [线性代数的本质](https://www.bilibili.com/video/av6731067) - _3Blue1Brown_
+  - [线性代数的本质](https://www.bilibili.com/video/BV1ys411472E/) - _3Blue1Brown_

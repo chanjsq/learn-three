@@ -16,3 +16,5 @@
 - 模型
   - [Low Poly Well](https://skfb.ly/6TNAL) - abdullahyeahyea
   - [Seven Stars Brick Lane](https://skfb.ly/6V96t)
+  - [Used New Balance 574 Classic](https://skfb.ly/6RqXy)
+  - [FSC Żuk](https://skfb.ly/6SJ7s)

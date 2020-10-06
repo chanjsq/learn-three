@@ -37,7 +37,7 @@ export default {
       camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
       camera.position.z = 5;
 
-      // 设置轨道控制
+      // 设置轨道控制器
       const controls = new OrbitControls(camera, canvas);
       controls.addEventListener('change', () => renderer.render(scene, camera));
 

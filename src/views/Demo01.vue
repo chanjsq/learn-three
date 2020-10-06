@@ -37,6 +37,10 @@ export default {
       camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
       camera.position.z = 5;
 
+      // 设置轨道控制
+      const controls = new OrbitControls(camera, canvas);
+      controls.addEventListener('change', () => renderer.render(scene, camera));
+
       // 定义场景
       scene = new THREE.Scene();
 
@@ -61,10 +65,6 @@ export default {
 
       // 动画
       this.animate();
-
-      // 设置轨道控制
-      const controls = new OrbitControls(camera, canvas);
-      controls.addEventListener('change', () => renderer.render(scene, camera));
     },
     animate() {
       cube.rotation.y += 0.01;

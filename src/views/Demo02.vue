@@ -51,6 +51,8 @@ export default {
         loader.load('/models/low_poly_well/scene.gltf', (gltf) => {
           model = gltf.scene;
           scene.add(model);
+          // 动画
+          this.animate();
         });
       }
 
@@ -62,13 +64,14 @@ export default {
       scene.add(envLight);
 
       // 渲染
-      this.animate();
+      this.render();
+    },
+    render() {
+      renderer.render(scene, camera);
     },
     animate() {
-      if (model) {
-        model.rotation.y += 0.01;
-      }
-      renderer.render(scene, camera);
+      model.rotation.y += 0.01;
+      this.render();
       requestAnimationFrame(this.animate);
     },
   },

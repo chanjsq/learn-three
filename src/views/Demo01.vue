@@ -60,9 +60,6 @@ export default {
       scene.add(light);
       scene.add(envLight);
 
-      // 渲染
-      renderer.render(scene, camera);
-
       // 动画
       this.animate();
     },
